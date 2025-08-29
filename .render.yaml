@@ -4,12 +4,14 @@ services:
     env: docker
     plan: free
     autoDeploy: true
-    region: oregon
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/*.jar"
+
     envVars:
-      - key: DB_URL
-        value: jdbc:mysql://tramway.proxy.rlwy.net:48942/railway?useSSL=false&serverTimezone=UTC
+      - key: DB_HOST
+        value: tramway.proxy.rlwy.net
+      - key: DB_PORT
+        value: 48942
+      - key: DB_NAME
+        value: railway
       - key: DB_USERNAME
         value: root
       - key: DB_PASSWORD
