@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: quiz-backend
+    env: docker
+    plan: free
+    autoDeploy: true
+    region: oregon
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: DB_URL
+        value: jdbc:mysql://tramway.proxy.rlwy.net:48942/railway?useSSL=false&serverTimezone=UTC
+      - key: DB_USERNAME
+        value: root
+      - key: DB_PASSWORD
+        value: rkLlVcbNgFjcUZMRnBUjkpkjqlqZkGLl
